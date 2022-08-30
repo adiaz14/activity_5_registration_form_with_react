@@ -31,49 +31,58 @@ const FormCompoment = () => {
     }
 
     //Delete object of list
-    const deleteUser = () => {
-        setLista(
-            [
-                ...list,
-                { name: name, lastname: lastname }
-            ]
-        )
-
-        remainingArr = objArr.filter((name, lastname) => data.name != );
-    }
-
+    /*    const deleteUser = (e) => {
+            setLista(
+                [
+                    ...list,
+                    { name: name, lastname: lastname }
+                ]
+            )
+    
+            remainingArr = objArr.filter((name, lastname) => data.name != );
+        }
+    */
 
     return (
-        <div>
+        <div className="container-main container">
+
             <hr />
-            <h2>Registration Form</h2>
-            <form onSubmit={saveUser}>
-                <input type="text"
-                    placeholder='User name'
-                    className='form-control m-3'
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <input type="text"
-                    placeholder='User lastname'
-                    className='form-control m-3'
-                    onChange={(e) => setLastname(e.target.value)}
-                />
-                <div className='d-grid gap2'>
-                    <button type='submit' className='m-3 btn btn-outline-info'>Save</button>
-                </div>
-            </form>
+
+            <h2 className="secundary-titles">Registration Form</h2>
+            <div className="form-container container-fluid">
+                <form onSubmit={saveUser} className="container-fluid">
+                    <input type="text"
+                        placeholder='User name'
+                        className='form-control m-3'
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <input type="text"
+                        placeholder='User lastname'
+                        className='form-control m-3'
+                        onChange={(e) => setLastname(e.target.value)}
+                    />
+                    <div className='d-grid gap2'>
+                        <button type='submit' className='btn btn btn-success m-3'>Save</button>
+                    </div>
+                </form>
+            </div>
+
             <hr />
-            <h2>List of registred users</h2>
-            <ul>
-                {
-                    list.map((item, index) => (<li key={index}>{item.name} {item.lastname}
-                        <button type='submit' onClick={() => deleteUser()} className='m-3 btn btn-outline-danger'>Delete</button>
-                    </li>))
-                }
-            </ul>
+
+            <h2 className="secundary-titles">List of registred users</h2>
+            <div className="list-container container-fluid">
+                <ul className="list-group">
+                    {
+                        list.map((item, index) => (<li className='list-element mb-1 bg-light text-dark' key={index}>{item.name} {item.lastname}
+                            <button type='submit' id="btn-delete" className='btn btn-danger m-3' color="danger">Delete</button>
+                        </li>))
+                    }
+                </ul>
+            </div>
+
             <hr />
+
         </div>
     )
 }
-
 export default FormCompoment
