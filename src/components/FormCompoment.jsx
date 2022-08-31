@@ -45,12 +45,10 @@ const FormCompoment = () => {
 
     return (
         <div className="container-main container">
-
             <hr />
-
             <h2 className="secundary-titles">Registration Form</h2>
             <div className="form-container container-fluid">
-                <form onSubmit={saveUser} className="container-fluid">
+                <form onSubmit={saveUser} className="container">
                     <input type="text"
                         placeholder='User name'
                         className='form-control m-3'
@@ -70,18 +68,19 @@ const FormCompoment = () => {
             <hr />
 
             <h2 className="secundary-titles">List of registred users</h2>
-            <div className="list-container container-fluid">
+            <div className="list-container">
                 <ul className="list-group">
                     {
-                        list.map((item, index) => (<li className='list-element mb-1 bg-light text-dark' key={index}>{item.name} {item.lastname}
-                            <button type='submit' id="btn-delete" className='btn btn-danger m-3' color="danger">Delete</button>
-                        </li>))
+                        list.map((item, index) => (
+                            <li className='list-element mb-2 bg-light text-dark' key={index}>
+                                <div className="col-8"><span>{item.name} {item.lastname}</span></div>
+                                <div className="col-4"><button type='submit' id="btn-delete" className='btn btn-danger m-3' color="danger">Delete</button></div>
+                            </li>
+                        ))
                     }
                 </ul>
             </div>
-
             <hr />
-
         </div>
     )
 }

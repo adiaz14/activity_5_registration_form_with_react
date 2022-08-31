@@ -5,7 +5,6 @@ body {
 }
 
 .container-main {
-  display: block;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -26,24 +25,25 @@ body {
 }
 
 .list-container {
-  display: inline-block;
-  background-color:bisque;
+  display: flex;
+  justify-content: center;
 }
 
 .list-element {
-  text-align: left;
   border-radius: 10px;
   border-color: brown;
   border: 1px solid;
-  padding: 2px 25px;
-  width: 60%;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
 }
 
 hr {
   margin: 20px 0px;
   border: 1px solid;
   color: darkolivegreen;
-
 }
 
 .secundary-titles {
@@ -51,13 +51,12 @@ hr {
 }
 
 .form-control {
-  width: 60%;
+  width: 90%;
 }
 
-#btn-delete {
+.list-group {
+  width: 50%;
 }
-
-.list-group{
-  margin: 0 20px;
-  background-color: grey;
+span{
+  margin: 0 10px 0 20px;
 }
