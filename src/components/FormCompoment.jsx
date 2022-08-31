@@ -27,6 +27,8 @@ const FormCompoment = () => {
         setLastname('')
         //Clear inputs
         e.target.reset()
+        //Set focus on input name to add new users
+        document.getElementById("input-name").focus();
 
     }
 
@@ -51,11 +53,13 @@ const FormCompoment = () => {
                     <input type="text"
                         placeholder='User name'
                         className='form-control m-3'
+                        id="input-name"
                         onChange={(e) => setName(e.target.value)}
                     />
                     <input type="text"
                         placeholder='User lastname'
                         className='form-control m-3'
+                        id="input-lastname"
                         onChange={(e) => setLastname(e.target.value)}
                     />
                     <div className='d-grid gap2'>
