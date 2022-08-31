@@ -38,6 +38,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: left;
+  flex-wrap: wrap;
 }
 
 hr {
@@ -59,4 +60,5 @@ hr {
 }
 span{
   margin: 0 10px 0 20px;
+  display: inline-block;
 }

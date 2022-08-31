@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const FormCompoment = () => {
     const [name, setName] = useState('')
     const [lastname, setLastname] = useState('')
-    const [list, setLista] = useState([])
+    const [list, setList] = useState([])
     const saveUser = (e) => {
         e.preventDefault()//Prevent defaul behavior of get method 
         //Validations
@@ -16,7 +16,7 @@ const FormCompoment = () => {
             return
         }
         //Save object in list
-        setLista(
+        setList(
             [
                 ...list,
                 { name: name, lastname: lastname }
@@ -31,17 +31,14 @@ const FormCompoment = () => {
     }
 
     //Delete object of list
-    /*    const deleteUser = (e) => {
-            setLista(
-                [
-                    ...list,
-                    { name: name, lastname: lastname }
-                ]
-            )
-    
-            remainingArr = objArr.filter((name, lastname) => data.name != );
-        }
-    */
+    const deleteUser = (index) => {
+        //Get items to remove
+        let nameToRemove = list[index].name;
+        let lastnameToRemove = list[index].lastname;
+        //Remove elemento from list and update state
+        setList(list.filter(user => user.name !== nameToRemove && user.lastname !== lastnameToRemove))
+    }
+
 
     return (
         <div className="container-main container">
@@ -74,7 +71,7 @@ const FormCompoment = () => {
                         list.map((item, index) => (
                             <li className='list-element mb-2 bg-light text-dark' key={index}>
                                 <div className="col-8"><span>{item.name} {item.lastname}</span></div>
-                                <div className="col-4"><button type='submit' id="btn-delete" className='btn btn-danger m-3' color="danger">Delete</button></div>
+                                <div key={index} className="col-4"><button type='submit' onClick={() => deleteUser(index)} id="btn-delete" className='btn btn-danger m-3' color="danger">Delete</button></div>
                             </li>
                         ))
                     }
